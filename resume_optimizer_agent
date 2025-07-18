@@ -1,5 +1,3 @@
-%%writefile ResumeOptimizer_Agent.py
-
 import streamlit as st
 import nltk
 import spacy
