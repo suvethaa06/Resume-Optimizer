@@ -2,7 +2,6 @@ import streamlit as st
 import nltk
 import spacy
 import fitz  # PyMuPDF
-import subprocess
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from collections import Counter
@@ -11,12 +10,8 @@ from collections import Counter
 nltk.download('punkt')
 nltk.download('stopwords')
 
-# 🧠 Load spaCy model with fallback if not installed
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
-    nlp = spacy.load("en_core_web_sm")
+# 🧠 Load spaCy model (assumes it's pre-installed via requirements.txt)
+nlp = spacy.load("en_core_web_sm")
 
 # 📄 Extract text from uploaded PDF
 def extract_text_from_pdf(file):
